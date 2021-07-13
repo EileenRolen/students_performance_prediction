@@ -2,7 +2,7 @@ To predict the academic performance of students based on various factors.
 
 
 
-Referneces:
+References:
 
 - https://archive.ics.uci.edu/ml/datasets/Student+Performance
 
