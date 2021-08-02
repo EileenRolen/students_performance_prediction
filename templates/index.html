@@ -15,7 +15,7 @@
     	<div class="container">
             <h2 class='container-heading'><span class='heading_first'> Students </span><span class="heading_second">Performance Predictor</span></h2>
             <div class='description'>
-    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    			<p>A Machine Learning Web App, Built with Flask</p>
     		</div>
     	</div>
     	
@@ -75,16 +75,23 @@
             <div class='div2'>
                 <form action="{{ url_for('predict') }}" method="POST">
                 
+                <!-- gender -->
+                    <select class="form-input align-center" name="sex">
+                        <option value="none">--- Select Gender ---</option>
+                        <option value="F">Female</option>
+                        <option value="M">Male</option>
+                    </select><br>   
+                    
                  <!-- studytime -->
                     <select class="form-input align-center" name="studytime">
                         <option value="none">--- Select Weekly Studytime ---</option>
-                        <option value="4"> Less than 2 hours</option>
-                        <option value="3"> 2 to 5 hours</option>
-                        <option value="2">5 to 10 hours</option>
-                        <option value="1"> More than 10 hours</option>
+                        <option value="1"> Less than 2 hours</option>
+                        <option value="4"> 2 to 5 hours</option>
+                        <option value="3">5 to 10 hours</option>
+                        <option value="2"> More than 10 hours</option>
                      </select><br>
                
-              
+            
             <!-- failures -->
                     <select class="form-input align-center" name="failures">
                         <option value="none">--- Select Failures ---</option>
@@ -93,20 +100,42 @@
                         <option value="2">2</option>
                         <option value="3">More</option>
                     </select><br>
-                    
            
             <!-- higher -->
                     <select class="form-input align-center" name="higher">
                         <option value="none">--- Higher Education ---</option>
-                        <option value="no">Yes</option>
-                        <option value="yes">No</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
                     </select><br>
+                    
+            <!-- paid -->
+                    <select class="form-input align-center" name="paid">
+                        <option value="none">--- Paid Courses ---</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select><br>
+                    
+            <!-- acivities -->
+                    <select class="form-input align-center" name="activities">
+                        <option value="none">--- Extra-Curricular Activities ---</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select><br>
+                    
+            <!-- internet -->
+                    <select class="form-input align-center" name="internet">
+                        <option value="none">--- Internet Access ---</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select><br>
+            
+            
                     
                     
             
                     <input class="form-input" type="text" name="absences" placeholder="No.of school absences"><br>
                     <input class="form-input" type="text" name="G1" placeholder="First Assessment Marks"><br>
-                    <input class="form-input" type="text" name="G2" placeholder="Second Assessment Marks "><br>
+                    <input class="form-input" type="text" name="G2" placeholder="Second Assessment Marks"><br>
 
 			<input type="submit" class="myButton" value="Predict Score">
         	</form>
@@ -162,6 +191,7 @@
              </div>
          </div>
          
+        
 
     </body>
 </html>
