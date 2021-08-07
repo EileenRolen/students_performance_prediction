@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 # Load the model
-filename = 'ridge_regression-modeLL.pkl'
+filename = 'ridge_regression_modl.pkl'
 regressor = pickle.load(open(filename, 'rb'))
 
 app = Flask(__name__)
@@ -29,6 +29,15 @@ def predict():
         elif sex == 'M':
             temp_array = temp_array + [0,1]
      
+        traveltime = request.form['traveltime']
+        if traveltime == '2':
+            temp_array = temp_array + [1,0,0,0]
+        elif traveltime == '3':
+            temp_array = temp_array + [0,1,0,0]
+        elif traveltime == '1':
+            temp_array = temp_array + [0,0,1,0]
+        elif traveltime == '4':
+            temp_array = temp_array + [0,0,0,1]
         
         studytime = request.form['studytime']
         if studytime == '2':
@@ -51,6 +60,19 @@ def predict():
             temp_array = temp_array + [0,0,1,0]
         elif failures == '2':
             temp_array = temp_array + [0,0,0,1]
+            
+               
+        health = request.form['health']
+        if health == '1':
+            temp_array = temp_array + [1,0,0,0,0]
+        elif health == '2':
+            temp_array = temp_array + [0,1,0,0,0]
+        elif health == '3':
+            temp_array = temp_array + [0,0,1,0,0]
+        elif health == '4':
+            temp_array = temp_array + [0,0,0,1,0]
+        elif health == '5':
+            temp_array = temp_array + [0,0,0,0,1]
         
            
        
@@ -60,26 +82,7 @@ def predict():
         elif higher == 'no':
             temp_array = temp_array + [0,1]
       
-        paid = request.form['paid']
-        if paid == 'no':
-            temp_array = temp_array + [1,0]
-        elif paid == 'yes':
-            temp_array = temp_array + [0,1]  
-            
-        activities = request.form['activities']
-        if activities == 'no':
-            temp_array = temp_array + [1,0]
-        elif activities == 'yes':
-            temp_array = temp_array + [0,1]  
-      
-      
-        
-        internet = request.form['internet']
-        if internet == 'no':
-            temp_array = temp_array + [1,0]
-        elif internet == 'yes':
-            temp_array = temp_array + [0,1]  
-      
+    
         
       
         temp_array = temp_array + [absences,G1,G2]
@@ -87,7 +90,7 @@ def predict():
         data = np.array([temp_array])
         my_prediction = int(regressor.predict(data)[0])
             
-        return render_template('result.html', lower_limit = my_prediction-1, upper_limit = my_prediction+2)
+        return render_template('result.html', lower_limit = my_prediction+1, upper_limit = my_prediction+3)
 
 
 if __name__ == '__main__':
