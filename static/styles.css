@@ -25,13 +25,13 @@ body{
 
 .heading_first{
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 800;
-	font-style: italic;
+	font-weight: 100;
 }
 
 .heading_second{
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 100;
+	font-weight: 800;
+	font-style: italic;
 }
 
 .description p{
@@ -205,7 +205,28 @@ body{
 	top:1px;
 }
 
+/* Footer */
+.footer{
+	background-color: #E9E9E9;
+	color: #000000;
+	padding: 12px;
+    text-align: center;
+}
 
+.contact-icon{
+	color: #000000;
+	padding: 7px;
+}
+
+.contact-icon:hover{
+	color: #a6a19a;
+}
+
+.footer-description{
+	margin: 0;
+	font-size: 12px;
+	font-weight: 100;
+}
 
 /* Result */
 .results{
@@ -216,3 +237,18 @@ body{
   text-align: center;
 }
 
+.danger{
+    color: #ff0000;
+}
+
+.safe{
+    color: green;
+}
+
+.gif{
+	width: 25%;
+}
+
+.gif1{
+	width: 40%;
+}
